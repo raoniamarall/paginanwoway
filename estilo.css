@@ -1,0 +1,101 @@
+/* Estilos para o corpo do documento */
+body,
+html {
+  height: 100%;
+}
+
+body {
+  background: #518d9e;
+  background: -webkit-gradient(
+    linear,
+    left top,
+    left bottom,
+    from(#518d9e),
+    to(#2c3143)
+  );
+  background: linear-gradient(180deg, #518d9e 0, #2c3143);
+  background-attachment: fixed;
+  background-color: #eeeff5;
+  color: #666779;
+  font-family: Open Sans, Helvetica, Arial, sans-serif;
+  font-size: 0.75rem;
+  line-height: 1.5;
+}
+
+* {
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:after,
+:before {
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+::-webkit-scrollbar {
+  width: 0.5625rem;
+  height: 0.5625rem;
+}
+
+::-webkit-scrollbar-thumb {
+  border: 0.125rem solid transparent;
+  border-radius: 0.28125rem;
+  -webkit-box-shadow: inset 0 0 0 0.15625rem;
+  box-shadow: inset 0 0 0 0.15625rem;
+  color: #c1c1c1;
+}
+
+::-webkit-scrollbar-track {
+  background: #f7f7fd;
+}
+
+h1 {
+  text-align: center;
+  color: white;
+  font-size: 1.2rem;
+  font-style: italic;
+  margin-top: 0.2rem;
+}
+
+.image-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.image-box {
+  position: relative;
+  width: 170px;
+  margin-bottom: 2cm;
+}
+
+.image-box img {
+  width: 100%;
+  background-color: transparent;
+  border-radius: 2px;
+}
+
+.image-box::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
+  border-radius: 1px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  z-index: 1;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.image-box:hover::before {
+  opacity: 1;
+  cursor: pointer;
+}
