@@ -1,7 +1,7 @@
-/* Estilos para o corpo do documento */
 body,
 html {
   height: 100%;
+  margin: 0;
 }
 
 body {
@@ -17,60 +17,58 @@ body {
   background-attachment: fixed;
   background-color: #eeeff5;
   color: #666779;
-  font-family: Open Sans, Helvetica, Arial, sans-serif;
+  font-family: Arial, sans-serif;
   font-size: 0.75rem;
   line-height: 1.5;
 }
 
-* {
-  -webkit-box-sizing: border-box;
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
-
-:after,
-:before {
-  -webkit-box-sizing: border-box;
-  box-sizing: border-box;
-}
-
-::-webkit-scrollbar {
-  width: 0.5625rem;
-  height: 0.5625rem;
-}
-
-::-webkit-scrollbar-thumb {
-  border: 0.125rem solid transparent;
-  border-radius: 0.28125rem;
-  -webkit-box-shadow: inset 0 0 0 0.15625rem;
-  box-shadow: inset 0 0 0 0.15625rem;
-  color: #c1c1c1;
-}
-
-::-webkit-scrollbar-track {
-  background: #f7f7fd;
-}
-
-h1 {
-  text-align: center;
+/* Estilos para o header */
+.header {
+  display: flex;
+  align-items: flex-start; /* Alinha a logo com a primeira coluna dos aplicativos */
+  justify-content: space-between;
+  padding: 1rem;
   color: white;
-  font-size: 1.2rem;
-  font-style: italic;
-  margin-top: 0.2rem;
+  margin-top: 50px;
 }
 
+.header .logo {
+  width: 200px; /* Aumenta o tamanho da logo */
+  margin-bottom: 40px;
+  margin-left: 40px;
+}
+
+.label {
+  display: flex;
+  align-items: center;
+  font-size: 1rem;
+  padding-right: 20px;
+}
+
+.raoni-icon {
+  width: 24px;
+  margin-right: 8px;
+}
+
+/* Estilos para o container das imagens */
 .image-container {
+  max-width: 1280px;
+  margin: 0 auto;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
-  max-width: 900px;
-  margin: 0 auto;
+}
+
+.image-row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  width: 100%;
 }
 
 .image-box {
+  flex-basis: calc(25% - 1rem);
   position: relative;
-  width: 170px;
   margin-bottom: 2cm;
 }
 
@@ -80,22 +78,56 @@ h1 {
   border-radius: 2px;
 }
 
-.image-box::before {
+.image-box h1 {
+  text-align: center;
+  margin-top: 0.2rem;
+}
+
+/* Estilos para o fundo fosco (opaco) */
+.image-box::after {
   content: "";
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.7);
-  border-radius: 1px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
-  z-index: 1;
+  background-color: rgba(
+    0,
+    0,
+    0,
+    0.5
+  ); /* Altere a opacidade conforme necessário */
+  border-radius: 2px;
+  z-index: -1;
   opacity: 0;
   transition: opacity 0.3s ease;
 }
 
-.image-box:hover::before {
+.image-box:hover::after {
   opacity: 1;
-  cursor: pointer;
 }
+
+/* Estilos para telas menores */
+@media screen and (max-width: 1280px) {
+  .image-container {
+    max-width: 1024px;
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  .image-container {
+    max-width: 768px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .image-box {
+    flex-basis: calc(50% - 1rem);
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .image-container {
+    max-width: 100%;
+    padding: 0 20px;
+  }
