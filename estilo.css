@@ -20,7 +20,10 @@ body {
   font-family: Arial, sans-serif;
   font-size: 0.75rem;
   line-height: 1.5;
-  max-width: 1280px;
+  margin: 0 auto;
+}
+
+.container {
   margin: 0 auto;
 }
 
@@ -31,10 +34,11 @@ body {
   justify-content: space-between;
   color: white;
   margin-bottom: 50px;
+  margin-top: 50px;
 }
 
 .header .logo {
-  width: 200px; /* Aumenta o tamanho da logo */
+  width: 250px; /* Aumenta o tamanho da logo */
 }
 
 .label {
@@ -47,40 +51,44 @@ body {
   margin-right: 8px;
 }
 
-/* Estilos para o container das imagens */
-.image-container {
-  max-width: 1280px;
-  margin: 0 auto;
+.apps {
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-between;
-}
-
-.image-row {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  width: 60%;
 }
 
 .image-box {
+  display: flex;
   background: rgba(0, 0, 0, 0.2);
   border: 1px solid rgba(80, 140, 157, 0.6);
-  flex-basis: calc(25% - 1rem);
-  position: relative;
-  margin-bottom: 2px;
   padding: 10px;
+  width: 250px;
+  height: 250px;
+  margin-right: 24px;
+  margin-bottom: 24px;
+  position: relative; /* Adiciona posição relativa para que o ::after funcione corretamente */
+}
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
 }
 
 .image-box img {
-  width: 60%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 120px;
   background-color: transparent;
   border-radius: 2px;
+  padding-top: 20px;
 }
 
 .image-box h1 {
   text-align: center;
-  margin-top: 0.2rem;
+  font-weight: 500;
+  color: white;
 }
 
 /* Estilos para o fundo fosco (opaco) */
@@ -107,15 +115,28 @@ body {
   opacity: 1;
 }
 
+/* Estilos para o tamanho do container em telas maiores */
+@media (min-width: 1700px) {
+  .container {
+    max-width: 1650px;
+  }
+}
+
+@media (max-width: 1699px) {
+  .container {
+    max-width: 1280px;
+  }
+}
+
 /* Estilos para telas menores */
 @media screen and (max-width: 1280px) {
-  .image-container {
+  .container {
     max-width: 1024px;
   }
 }
 
 @media screen and (max-width: 1024px) {
-  .image-container {
+  .container {
     max-width: 768px;
   }
 }
@@ -127,7 +148,7 @@ body {
 }
 
 @media screen and (max-width: 480px) {
-  .image-container {
+  .container {
     max-width: 100%;
     padding: 0 20px;
   }
